@@ -1,0 +1,27 @@
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .loader-container.fade-out {
+    opacity: 0;
+  }
+  
+/* The logo is now a flex item, centered by the container */
+.loader-logo-center {
+    width: auto;
+    height: auto;
+  }
+  
+  

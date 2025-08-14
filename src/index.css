@@ -1,0 +1,589 @@
+/* Import Bileha Font */
+@import url('./fonts.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* Pure white */
+    --foreground: 224 12% 15%; /* Deep charcoal */
+
+    --card: 0 0% 100%; /* Pure white cards */
+    --card-foreground: 224 12% 15%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 12% 15%;
+ 
+    --primary: 220 91% 25%; /* Logo-inspired blue */
+    --primary-foreground: 0 0% 100%; /* Pure white text */
+ 
+    --secondary: 210 40% 98%; /* Very light blue-gray */
+    --secondary-foreground: 220 91% 25%;
+ 
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 20% 65%;
+ 
+    --accent: 215 25% 45%; /* Logo-inspired gray accent */
+    --accent-foreground: 0 0% 100%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 220 14% 12%;
+ 
+    --radius: 1rem;
+  }
+ 
+  .dark {
+    --background: 220 26% 8%; /* True dark background */
+    --foreground: 210 40% 98%; /* Light text */
+ 
+    --card: 220 26% 12%; /* Dark cards */
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 220 26% 12%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 220 91% 65%; /* Lighter blue for dark mode */
+    --primary-foreground: 220 26% 8%; /* Dark text on light primary */
+ 
+    --secondary: 220 26% 18%; /* Dark secondary */
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 220 26% 18%;
+    --muted-foreground: 215 20% 65%;
+ 
+    --accent: 215 25% 70%; /* Lighter gray accent for dark mode */
+    --accent-foreground: 220 26% 8%;
+ 
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 220 26% 18%;
+    --input: 220 26% 15%;
+    --ring: 220 91% 65%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+    font-family: 'Helvetica', 'Helvetica Neue', 'Inter', 'Segoe UI', Roboto, Arial, sans-serif !important;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Helvetica', 'Helvetica Neue', 'Inter', 'Segoe UI', Roboto, Arial, sans-serif !important;
+    font-weight: 400;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 0;
+  }
+  html {
+    scroll-behavior: smooth;
+    font-size: 14px;
+    font-family: 'Helvetica', 'Helvetica Neue', 'Inter', 'Segoe UI', Roboto, Arial, sans-serif !important;
+  }
+  
+  /* Ensure all headings use Bileha by default, but allow override with font-content */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bileha', 'Helvetica', 'Helvetica Neue', 'Inter', 'Segoe UI', Roboto, Arial, sans-serif !important;
+    font-weight: 700;
+  }
+  
+  /* Ensure all other text elements use Helvetica by default */
+  p, span, div:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6), a, button, input, textarea, select {
+    font-family: 'Helvetica', 'Helvetica Neue', 'Inter', 'Segoe UI', Roboto, Arial, sans-serif !important;
+  }
+  
+  /* Font utility classes */
+  .font-heading {
+    font-family: 'Bileha', 'Helvetica', 'Helvetica Neue', 'Inter', 'Segoe UI', Roboto, Arial, sans-serif !important;
+  }
+  
+  .font-content {
+    font-family: 'Helvetica', 'Helvetica Neue', 'Inter', 'Segoe UI', Roboto, Arial, sans-serif !important;
+  }
+  
+  .font-bileha {
+    font-family: 'Bileha', 'Helvetica', 'Helvetica Neue', 'Inter', 'Segoe UI', Roboto, Arial, sans-serif !important;
+  }
+  
+  /* Override default font for specific elements that should use Helvetica */
+  p.font-content, 
+  span.font-content, 
+  div.font-content, 
+  a.font-content, 
+  button.font-content,
+  .font-content p,
+  .font-content span,
+  .font-content div {
+    font-family: 'Helvetica', 'Helvetica Neue', 'Inter', 'Segoe UI', Roboto, Arial, sans-serif !important;
+  }
+  
+  /* Ensure headings with font-heading class use Bileha */
+  h1.font-heading,
+  h2.font-heading,
+  h3.font-heading,
+  h4.font-heading,
+  h5.font-heading,
+  h6.font-heading {
+    font-family: 'Bileha', 'Helvetica', 'Helvetica Neue', 'Inter', 'Segoe UI', Roboto, Arial, sans-serif !important;
+  }
+  
+  /* Responsive font scaling */
+  @media (min-width: 640px) {
+    html {
+      font-size: 15px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    html {
+      font-size: 17px;
+    }
+  }
+  
+  @media (min-width: 1536px) {
+    html {
+      font-size: 18px;
+    }
+  }
+}
+
+@layer components {
+  /* Mobile-first responsive utilities */
+  .mobile-padding {
+    @apply px-4 sm:px-6 md:px-8;
+  }
+  
+  .mobile-text {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+  
+  .mobile-title {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  .mobile-hero-title {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+  
+  /* Enhanced mobile responsiveness */
+  .ultra-mobile-text {
+    @apply text-xs xs:text-sm sm:text-base md:text-lg;
+  }
+  
+  .ultra-mobile-title {
+    @apply text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  .ultra-mobile-hero {
+    @apply text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+  
+  /* Responsive card layouts */
+  .mobile-card-grid {
+    @apply grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6;
+  }
+  
+  .mobile-feature-grid {
+    @apply grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6;
+  }
+  
+  /* Touch-friendly interactive elements */
+  .mobile-button {
+    @apply min-h-[48px] px-6 py-3 text-base touch-manipulation;
+  }
+  
+  .mobile-nav-item {
+    @apply min-h-[44px] px-4 py-3 touch-manipulation;
+  }
+}
+
+@layer utilities {
+  /* Touch-friendly sizing for mobile */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  /* Responsive utility classes */
+  .responsive-container {
+    @apply px-4 sm:px-6 md:px-8;
+  }
+  
+  .responsive-text {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+  
+  .responsive-heading {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  .responsive-large-heading {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+  
+  /* High-quality image rendering for all zoom levels */
+  .high-quality-image {
+    image-rendering: high-quality;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto;
+    -ms-interpolation-mode: bicubic;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform;
+    transition: transform 0.3s ease-out;
+    filter: brightness(1.02) contrast(1.05) saturate(1.1);
+    /* Performance optimizations for GitHub Pages */
+    content-visibility: auto;
+    contain: layout style paint;
+  }
+  
+  /* Specific logo quality enhancement */
+  .high-quality-image[alt*="Logo"] {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    filter: contrast(1.1) saturate(1.1);
+  }
+  
+  /* Container for high-quality images */
+  .image-container {
+    transform: translateZ(0);
+    will-change: transform;
+    overflow: hidden;
+    image-rendering: high-quality;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  
+  /* Safe area padding for mobile devices */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  /* Enhanced mobile gallery layouts */
+  .mobile-gallery-item {
+    min-height: 150px;
+    transition: all 0.3s ease;
+  }
+  
+  @media (min-width: 475px) {
+    .mobile-gallery-item {
+      min-height: 180px;
+    }
+  }
+  
+  @media (min-width: 640px) {
+    .mobile-gallery-item {
+      min-height: 200px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .mobile-gallery-item {
+      min-height: 250px;
+    }
+  }
+  
+  /* Responsive video container */
+  .responsive-video {
+    aspect-ratio: 16/9;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Mobile-first image scaling */
+  .mobile-hero-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  @media (min-width: 475px) {
+    .mobile-hero-image {
+      height: 300px;
+    }
+  }
+  
+  @media (min-width: 640px) {
+    .mobile-hero-image {
+      height: 400px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .mobile-hero-image {
+      height: 500px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .mobile-hero-image {
+      height: 70vh;
+    }
+  }
+  
+  /* Enhanced scrollbar styling for better mobile UX */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.5);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 0.8);
+  }
+  
+  /* Mobile landscape orientation fixes */
+  @media screen and (max-height: 500px) and (orientation: landscape) {
+    .hero-height {
+      min-height: 100vh;
+    }
+    
+    .mobile-hero-title {
+      font-size: 1.5rem !important;
+      line-height: 1.3 !important;
+    }
+    
+    .mobile-padding {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+  }
+  
+  /* Ultra-wide screen optimizations */
+  @media screen and (min-width: 1920px) {
+    .container-responsive {
+      max-width: 1800px;
+    }
+    
+    html {
+      font-size: 19px;
+    }
+  }
+  
+  /* High DPI display optimizations */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .high-quality-image {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: auto;
+    }
+  }
+}
+
+/* 3D Flip Card CSS Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Flip card specific styles */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Enhanced Responsive Utilities */
+@layer utilities {
+  /* Container max-widths for consistent layout */
+  .container-responsive {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container-responsive {
+      max-width: 640px;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container-responsive {
+      max-width: 768px;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-responsive {
+      max-width: 1024px;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .container-responsive {
+      max-width: 1280px;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+  
+  @media (min-width: 1536px) {
+    .container-responsive {
+      max-width: 1400px;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  /* Typography scaling for different screen sizes */
+  .text-responsive-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  
+  .text-responsive-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .text-responsive-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  .text-responsive-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+  
+  .text-responsive-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  
+  @media (min-width: 768px) {
+    .text-responsive-xs { font-size: 0.875rem; line-height: 1.25rem; }
+    .text-responsive-sm { font-size: 1rem; line-height: 1.5rem; }
+    .text-responsive-base { font-size: 1.125rem; line-height: 1.75rem; }
+    .text-responsive-lg { font-size: 1.25rem; line-height: 1.75rem; }
+    .text-responsive-xl { font-size: 1.5rem; line-height: 2rem; }
+  }
+  
+  @media (min-width: 1024px) {
+    .text-responsive-xs { font-size: 1rem; line-height: 1.5rem; }
+    .text-responsive-sm { font-size: 1.125rem; line-height: 1.75rem; }
+    .text-responsive-base { font-size: 1.25rem; line-height: 1.75rem; }
+    .text-responsive-lg { font-size: 1.5rem; line-height: 2rem; }
+    .text-responsive-xl { font-size: 1.875rem; line-height: 2.25rem; }
+  }
+
+  /* Spacing utilities for consistent layouts */
+  .spacing-responsive {
+    padding: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .spacing-responsive {
+      padding: 2rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .spacing-responsive {
+      padding: 3rem;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .spacing-responsive {
+      padding: 4rem;
+    }
+  }
+
+  /* Component sizing utilities */
+  .hero-height {
+    min-height: 80vh;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-height {
+      min-height: 90vh;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .hero-height {
+      min-height: 100vh;
+    }
+  }
+
+  /* Vertical text utilities */
+  .vertical-text {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+  }
+}
